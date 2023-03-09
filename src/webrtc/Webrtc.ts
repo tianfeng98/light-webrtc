@@ -1,4 +1,4 @@
-// import 'webrtc-adapter';
+import "webrtc-adapter";
 import { RETRY_TIME } from "./constants";
 import { Status } from "./enum";
 import ObjectEvent from "./ObjectEvent";
@@ -17,6 +17,10 @@ export interface WebRTCOptions {
    */
   retryTime?: number;
   /**
+   * PeerConnection configuration
+   */
+  connectionConfig?: RTCConfiguration;
+  /**
    * Send offer and get answer
    * @param {string} localSdp
    * @returns {Promise<string>}
@@ -33,9 +37,9 @@ class Webrtc extends ObjectEvent {
   constructor(options: WebRTCOptions) {
     super();
     this.options = options;
-    const { getRemoteSdp } = options;
+    const { getRemoteSdp, connectionConfig } = options;
     this.getRemoteSdp = getRemoteSdp;
-    this.rtcPeerConnection = new RTCPeerConnection();
+    this.rtcPeerConnection = new RTCPeerConnection(connectionConfig);
     this.init(options);
   }
 
@@ -130,7 +134,8 @@ class Webrtc extends ObjectEvent {
 
   async reload() {
     this.closeConnection();
-    this.rtcPeerConnection = new RTCPeerConnection();
+    const { connectionConfig } = this.options;
+    this.rtcPeerConnection = new RTCPeerConnection(connectionConfig);
     await this.init({ ...this.options, autoLoad: true });
   }
 

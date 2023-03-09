@@ -123,6 +123,12 @@ default: `3`
 
 Retry time when disconnected
 
+## connectionConfig
+
+type: `RTCConfiguration`
+
+PeerConnection configuration
+
 ## getRemoteSdp
 
 `required`

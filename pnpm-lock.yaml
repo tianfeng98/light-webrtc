@@ -5,6 +5,10 @@ specifiers:
   prettier: ^2.8.4
   typescript: ^4.9.5
   vite: ^4.1.4
+  webrtc-adapter: ^8.2.1
+
+dependencies:
+  webrtc-adapter: 8.2.1
 
 devDependencies:
   '@types/node': 18.14.6
@@ -317,6 +321,10 @@ packages:
       fsevents: 2.3.2
     dev: true
 
+  /sdp/3.2.0:
+    resolution: {integrity: sha512-d7wDPgDV3DDiqulJjKiV2865wKsJ34YI+NDREbm+FySq6WuKOikwyNQcm+doLAZ1O6ltdO0SeKle2xMpN3Brgw==}
+    dev: false
+
   /source-map-js/1.0.2:
     resolution: {integrity: sha512-R0XvVJ9WusLiqTCEiGCmICCMplcCkIwwR11mOSD9CR5u+IXYdiseeEuXCVAjS54zqwkLcPNnmU4OeJ6tUrWhDw==}
     engines: {node: '>=0.10.0'}
@@ -366,3 +374,10 @@ packages:
     optionalDependencies:
       fsevents: 2.3.2
     dev: true
+
+  /webrtc-adapter/8.2.1:
+    resolution: {integrity: sha512-uZGIyr9FgjNHwEy8dkSV6Dq7wASbaSeSpibhrzFiRf9eSmUsMd4a55ZIfCdaASeIbalGWEQIkcE59Y9VkgqDZw==}
+    engines: {node: '>=6.0.0', npm: '>=3.10.0'}
+    dependencies:
+      sdp: 3.2.0
+    dev: false
